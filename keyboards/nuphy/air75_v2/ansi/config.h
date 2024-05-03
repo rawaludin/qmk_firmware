@@ -33,4 +33,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define SD1_RX_PIN                          B7
 #define SD1_RX_PAL_MODE                     0
 
-#define EECONFIG_KB_DATA_SIZE             8
+#define EECONFIG_KB_DATA_SIZE               8
+// Configure the global tapping term (default: 200ms)
+#define TAPPING_TERM                        200
+#define PERMISSIVE_HOLD
+
+// Enable rapid switch from tap to hold, disables double tap hold auto-repeat.
+#define QUICK_TAP_TERM                      0
+
+// Both shift turn on CAPS WORD
+#define BOTH_SHIFTS_TURNS_ON_CAPS_WORD

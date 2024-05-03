@@ -41,7 +41,8 @@ enum custom_keycodes {
     SLEEP_MODE,
     BAT_SHOW,
     BAT_NUM,
-    RGB_TEST
+    RGB_TEST,
+    TOG_VIM
 };
 
 #define SYS_PRT                 G(S(KC_3))

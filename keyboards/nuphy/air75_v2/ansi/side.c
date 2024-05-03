@@ -19,6 +19,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "ansi.h"
 #include "side_table.h"
 #include "ws2812.h"
+#include "keymaps/rawaludin/qmk-vim/src/vim.h"
+#include "keymaps/rawaludin/qmk-vim/src/modes.h"
 
 #define SIDE_BRIGHT_MAX     4
 #define SIDE_SPEED_MAX      4
@@ -835,6 +837,36 @@ void rgb_test_show(void)
     wait_ms(500);
 }
 
+/*
+ * Vim mode indicator
+ */
+void vim_led_show(void) {
+    if (vim_mode_enabled()) {
+        switch (get_vim_mode()) {
+            case NORMAL_MODE:
+                // green
+                set_right_rgb(0, 255, 0);
+                set_left_rgb(0, 255, 0);
+                break;
+            case INSERT_MODE:
+                // red
+                set_right_rgb(255, 0, 0);
+                set_left_rgb(255, 0, 0);
+                break;
+            case VISUAL_MODE:
+            case VISUAL_LINE_MODE:
+                // orange
+                set_right_rgb(255, 100, 0);
+                set_left_rgb(255, 100, 0);
+                break;
+            default:
+                // purple
+                set_left_rgb(160, 32, 240);
+                break;
+        }
+    }
+}
+
 /**
  * @brief  side_led_show.
  */
@@ -868,9 +900,11 @@ void side_led_show(void) {
 
     sys_led_show();
     rf_led_show();
+    vim_led_show();
 
     if (timer_elapsed32(side_refresh_time) > 30) {
         side_refresh_time = timer_read32();
         side_rgb_refresh();
     }
+
 }
