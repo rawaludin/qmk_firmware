@@ -17,6 +17,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include QMK_KEYBOARD_H
 #include "qmk-vim/src/vim.h"
+#include "qmk-vim/src/modes.h"
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
@@ -32,6 +33,31 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
 
     return true; // Process all other keycodes normally
+}
+
+bool process_insert_mode_user(uint16_t keycode, const keyrecord_t *record) {
+    if (record->event.pressed && keycode == LCTL(KC_W)) {
+        tap_code16(LALT(KC_BSPC));
+        return false;
+    }
+    return true;
+}
+
+bool process_normal_mode_user(uint16_t keycode, const keyrecord_t *record) {
+    if (record->event.pressed && keycode == LCTL(KC_D)) {
+        tap_code(KC_PGDN);
+        return false;
+    }
+    if (record->event.pressed && keycode == LCTL(KC_U)) {
+        tap_code(KC_PGUP);
+        return false;
+    }
+    if (record->event.pressed && keycode == KC_SLSH) {
+        tap_code16(LGUI(KC_F));
+        insert_mode();
+        return false;
+    }
+    return true;
 }
 
 // Left-hand home row mods QWERTY
