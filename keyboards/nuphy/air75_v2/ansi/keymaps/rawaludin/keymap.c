@@ -62,26 +62,26 @@ bool process_normal_mode_user(uint16_t keycode, const keyrecord_t *record) {
 
 // Left-hand home row mods QWERTY
 #define HOME_A LALT_T(KC_A)
-#define HOME_S LCTL_T(KC_S)
-#define HOME_D LGUI_T(KC_D)
+#define HOME_S LGUI_T(KC_S)
+#define HOME_D LCTL_T(KC_D)
 #define HOME_F LSFT_T(KC_F)
 
 // Right-hand home row mods QWERTY
 #define HOME_J RSFT_T(KC_J)
-#define HOME_K RGUI_T(KC_K)
-#define HOME_L RCTL_T(KC_L)
+#define HOME_K RCTL_T(KC_K)
+#define HOME_L RGUI_T(KC_L)
 #define HOME_SCLN LALT_T(KC_SCLN)
 
 // Left-hand home row mods COLEMAK
 #define HOME_CM_A LALT_T(KC_A)
-#define HOME_CM_R LCTL_T(KC_R)
-#define HOME_CM_S LGUI_T(KC_S)
+#define HOME_CM_R LGUI_T(KC_R)
+#define HOME_CM_S LCTL_T(KC_S)
 #define HOME_CM_T LSFT_T(KC_T)
 
 // Right-hand home row mods COLEMAK
 #define HOME_CM_N RSFT_T(KC_N)
-#define HOME_CM_E RGUI_T(KC_E)
-#define HOME_CM_I RCTL_T(KC_I)
+#define HOME_CM_E RCTL_T(KC_E)
+#define HOME_CM_I RGUI_T(KC_I)
 #define HOME_CM_O LALT_T(KC_O)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
