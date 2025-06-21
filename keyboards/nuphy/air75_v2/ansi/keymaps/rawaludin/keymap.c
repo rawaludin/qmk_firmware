@@ -60,18 +60,6 @@ bool process_normal_mode_user(uint16_t keycode, const keyrecord_t *record) {
     return true;
 }
 
-// Left-hand home row mods QWERTY
-#define HOME_A LALT_T(KC_A)
-#define HOME_S LGUI_T(KC_S)
-#define HOME_D LCTL_T(KC_D)
-#define HOME_F LSFT_T(KC_F)
-
-// Right-hand home row mods QWERTY
-#define HOME_J RSFT_T(KC_J)
-#define HOME_K RCTL_T(KC_K)
-#define HOME_L RGUI_T(KC_L)
-#define HOME_SCLN LALT_T(KC_SCLN)
-
 // Left-hand home row mods COLEMAK
 #define HOME_CM_A LALT_T(KC_A)
 #define HOME_CM_R LGUI_T(KC_R)
@@ -90,7 +78,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [0] = LAYOUT_75_ansi(
     KC_ESC,     KC_BRID,   KC_BRIU,     KC_MCTL,   MAC_SEARCH, MAC_VOICE,   MAC_DND,   KC_MPRV,    KC_MPLY,     KC_MNXT,   KC_MUTE,    KC_VOLD,    KC_VOLU,     MAC_PRTA,   DF(5),      KC_DEL,
     KC_GRV,     KC_1,      KC_2,        KC_3,      KC_4,       KC_5,        KC_6,      KC_7,       KC_8,        KC_9,      KC_0,       KC_MINS,    KC_EQL,                  KC_BSPC,    KC_PGUP,
-    KC_TAB,     KC_Q,      KC_W,        KC_F,      KC_P,       KC_G,        KC_J,      KC_L,       KC_U,        KC_Y,      HOME_SCLN,  KC_LBRC,    KC_RBRC,                 KC_BSLS,    KC_PGDN,
+    KC_TAB,     KC_Q,      KC_W,        KC_F,      KC_P,       KC_G,        KC_J,      KC_L,       KC_U,        KC_Y,      KC_SCLN,    KC_LBRC,    KC_RBRC,                 KC_BSLS,    KC_PGDN,
     KC_ESC,     HOME_CM_A, HOME_CM_R,   HOME_CM_S, HOME_CM_T,  KC_D,        KC_H,      HOME_CM_N,  HOME_CM_E,   HOME_CM_I, HOME_CM_O,  KC_QUOT,                             KC_ENT,     KC_HOME,
     SC_LSPO,               KC_Z,        KC_X,      KC_C,       KC_V,        KC_B,      KC_K,       KC_M,        KC_COMM,   KC_DOT,     KC_SLSH,                 SC_RSPC,    KC_UP,      KC_END,
     TOG_VIM,    KC_LALT,   KC_LGUI,                                         LT(8, KC_SPC),                      KC_RGUI,   MO(1),      KC_RCTL,                 KC_LEFT,    KC_DOWN,    KC_RGHT),
@@ -136,8 +124,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_ESC,     KC_BRID,   KC_BRIU,     KC_MCTL,   MAC_SEARCH, MAC_VOICE,   MAC_DND,   KC_MPRV,    KC_MPLY,     KC_MNXT,   KC_MUTE,    KC_VOLD,    KC_VOLU,     MAC_PRTA,   DF(0),     KC_DEL,
     KC_GRV,     KC_1,      KC_2,        KC_3,      KC_4,       KC_5,        KC_6,      KC_7,       KC_8,        KC_9,      KC_0,       KC_MINS,    KC_EQL,                  KC_BSPC,    KC_PGUP,
     KC_TAB,     KC_Q,      KC_W,        KC_E,      KC_R,       KC_T,        KC_Y,      KC_U,       KC_I,        KC_O,      KC_P,       KC_LBRC,    KC_RBRC,                 KC_BSLS,    KC_PGDN,
-    KC_ESC,     HOME_A,    HOME_S,      HOME_D,    HOME_F,     KC_G,        KC_H,      HOME_J,     HOME_K,      HOME_L,    HOME_SCLN,  KC_QUOT,                             KC_ENT,     KC_HOME,
-    SC_LSPO,               KC_Z,        KC_X,      KC_C,       KC_V,        KC_B,      KC_N,       KC_M,        KC_COMM,   KC_DOT,     KC_SLSH,                 SC_RSPC,    KC_UP,      KC_END,
+    KC_ESC,     KC_A,      KC_S,        KC_D,      KC_F,       KC_G,        KC_H,      KC_J,       KC_K,        KC_L,      KC_SCLN,    KC_QUOT,                             KC_ENT,     KC_HOME,
+    KC_LSFT,               KC_Z,        KC_X,      KC_C,       KC_V,        KC_B,      KC_N,       KC_M,        KC_COMM,   KC_DOT,     KC_SLSH,                 KC_RSFT,    KC_UP,      KC_END,
     KC_LCTL,      KC_LALT,   KC_LGUI,                                         KC_SPC,                             KC_RGUI,   MO(6),      KC_RCTL,                 KC_LEFT,    KC_DOWN,    KC_RGHT),
 
 // layer Mac Fn
