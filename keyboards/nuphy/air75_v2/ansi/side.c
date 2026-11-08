@@ -867,6 +867,22 @@ void vim_led_show(void) {
     }
 }
 
+/*
+ * QWERTY layout indicator.
+ *
+ * Default layers in the rawaludin keymap:
+ *   2 = Windows QWERTY
+ *   5 = Mac QWERTY
+ */
+void layout_led_show(void) {
+    if (layer_state_cmp(default_layer_state, 5) ||
+        layer_state_cmp(default_layer_state, 2)) {
+        // blue
+        set_right_rgb(0, 0, 255);
+        set_left_rgb(0, 0, 255);
+    }
+}
+
 /**
  * @brief  side_led_show.
  */
@@ -900,6 +916,7 @@ void side_led_show(void) {
 
     sys_led_show();
     rf_led_show();
+    layout_led_show();
     vim_led_show();
 
     if (timer_elapsed32(side_refresh_time) > 30) {
